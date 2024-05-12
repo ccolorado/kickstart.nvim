@@ -102,7 +102,7 @@ vim.g.have_nerd_font = false
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -160,6 +160,13 @@ vim.opt.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.opt.confirm = true
+
+-- [[ Custom setting options ]]
+-- TODO: Auto resize splits|panes, when resizing window
+vim.api.nvim_create_autocmd('VimResized', {
+  pattern = '*',
+  command = 'wincmd =',
+})
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -266,12 +273,19 @@ require('lazy').setup({
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
+      -- Example options @ https://youtu.be/K-FKqXj8BAQ?t=732
       signs = {
-        add = { text = '+' },
-        change = { text = '~' },
+        -- add = { text = '+' },
+        -- change = { text = '~' },
+        -- delete = { text = '_' },
+        -- topdelete = { text = '‾' },
+        -- changedelete = { text = '~' },
+        add = { text = '┃' },
+        change = { text = '┃' },
         delete = { text = '_' },
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
+        untracked = { text = '┆' },
       },
     },
   },
@@ -874,6 +888,13 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'folke/tokyonight.nvim',
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = 'transparent',
+        floats = 'transparent',
+      },
+    },
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       ---@diagnostic disable-next-line: missing-fields
@@ -982,6 +1003,7 @@ require('lazy').setup({
   -- Or use telescope!
   -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
   -- you can continue same window with `<space>sr` which resumes last telescope search
+
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
