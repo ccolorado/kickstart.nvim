@@ -1010,7 +1010,6 @@ require('lazy').setup({
 
   -- [[ CUSTOM Settings ]]
   require 'custom.mappings',
-  require 'custom.autocorrect',
   require 'custom.colorschemes.init',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
@@ -1045,6 +1044,7 @@ require('lazy').setup({
       lazy = '💤 ',
     },
   },
+  require 'custom.autocorrect',
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
