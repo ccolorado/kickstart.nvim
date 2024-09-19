@@ -824,6 +824,11 @@ require('lazy').setup({
             'rafamadriz/friendly-snippets',
             config = function()
               require('luasnip.loaders.from_vscode').lazy_load()
+              require('luasnip.loaders.from_lua').load {
+                paths = {
+                  '~/.config/nvim/lua/custom/snippets',
+                },
+              }
             end,
           },
         },
@@ -1045,7 +1050,7 @@ require('lazy').setup({
     },
   },
   require 'custom.autocorrect',
-  require 'custom.preferences',
+  require 'custom.autocorrect',
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
