@@ -1,6 +1,7 @@
 return {
   -- save as sudo
-  vim.api.nvim_set_keymap('c', 'w!!', 'w !sudo tee > /dev/null %', { noremap = true, silent = true }),
+  -- vim.api.nvim_set_keymap('c', 'w!!', 'w S !sudo tee > /dev/null %', { noremap  true, silent = true }),
+  vim.api.nvim_set_keymap('c', 'w!!', ':SudaWrite', { noremap = true, silent = true }),
 
   -- Terminals
   -- :ToggleTerm direction=float
