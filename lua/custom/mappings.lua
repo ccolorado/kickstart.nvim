@@ -24,16 +24,17 @@ return {
   -- vim.keymap.set('n', '<Leader>gs', ':Git<CR>'),
 
   vim.keymap.set('n', '<Leader>gm', ':GMove ', { desc = 'Git move files by prompts destinantion path' }),
-  vim.keymap.set('n', '<Leader>gc', ':G commit<CR>', { desc = 'Git commit' }, { desc = 'Git commits' }), -- commits staged only
+  vim.keymap.set('n', '<Leader>gc', ':G commit<CR>', { desc = 'Git commits' }), -- commits staged only
 
   -- `:Git mergetool`
   -- `:Git difftool`
+  -- vim.keymap.set('n', '<leader>D', ':DiffSaved <CR>', { desc = 'Show unsaved diff' }),
   --  hunks @ init lua
   -- vim.keymap.set('n', '<Leader>gtm', ':G difftool<CR>'),
   -- vim.keymap.set('n', '<Leader>gtd', ':G mergetool<CR>'),
 
   -- -- neogit
-  vim.keymap.set('n', '<Leader>gs', ':Neogit kind=auto<CR>', { silent = true, noremap = true }, { desc = 'Opens Neogit' }),
+  vim.keymap.set('n', '<Leader>gs', ':Neogit kind=auto<CR>', { silent = true, noremap = true, desc = 'Opens Neogit' }),
 
   -- vim.keymap.set('n', '<Leader>f', '<cmd>NvimTreeToggle<CR>'),
   vim.keymap.set('n', '<Leader>f', '<cmd>Neotree toggle <CR>', { desc = 'Toggles Neotree window' }),
@@ -44,4 +45,7 @@ return {
   vim.keymap.set('n', '<Leader>l', '<cmd>tabnext<CR>', { desc = 'Tab Next ->' }),
 
   -- vim.cmd("iabbrev <expr> ,d strftime('%Y-%m-%d')")
+
+  -- TODO
+  --   C-Wv+gf - Edit existing file under cursor in vertically split window
 }
