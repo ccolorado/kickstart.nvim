@@ -49,8 +49,29 @@ return {
           inc_rename = false, -- enables an input dialog for inc-rename.nvim
           lsp_doc_border = false, -- add a border to hover docs and signature help
         },
+
+        -- WIP: Show macro recording text
+        -- -- Taken From : https://github.com/folke/noice.nvim/discussions/795#discussioncomment-9899472
+        -- routes = {
+        --   {
+        --     view = 'notify',
+        --     filter = {
+        --       event = 'msg_showmode',
+        --     },
+        --   },
+        --   {
+        --     view = 'mini',
+        --     filter = {
+        --       event = 'msg_showcmd',
+        --       any = {
+        --         { find = '[0-9mq]$' },
+        --       },
+        --     },
+        --   },
+        -- },
       }
     end,
   },
+
   vim.keymap.set('n', '<Leader>nd', '<cmd>NoiceDismiss<CR>', { desc = 'Dismiss Noice Message' }),
 }
