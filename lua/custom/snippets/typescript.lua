@@ -1,26 +1,8 @@
 local ls = require 'luasnip'
 
-ls.add_snippets('solidity', {
+ls.add_snippets('typescript', {
 
-  -- NOTE: way better snippets (func, funcr, funcrview)
-  -- ls.parser.parse_snippet('fn', 'function ${1:name}(${2:args})\n  ${3}\nend'),
-  --
-  -- funcrview  | returns View Function declaration
-  -- funcr      | returns function declaration
-  -- func       | function declaration
-
-  -- NOTE: NAT DOC
-  -- ///nat_statevariable | statevariable getter
-  -- ///nat_function      | function nat
-  -- ///nat_event         | event nat
-  -- ///nat_contract      | contract nat
-
-  ls.parser.parse_snippet('@p', '/// @param ${1:name} ${2:description}\n$3'),
-
-  ls.parser.parse_snippet('txcall', '(bool sent, ${3:bytes data}) = ${1:recipient}.call{value: ${2:amount}}("");'),
-  -- Reference: https://solidity-by-example.org/sending-ether/
-
-  ls.add_snippets('solidity', {
+  ls.add_snippets('typescript', {
 
     ls.snippet({ trig = 'lv', dscr = 'Prints variable name and value in console.log' }, {
       ls.text_node { 'console.log(' },
