@@ -3,7 +3,8 @@ return {
   opts = {
     -- Smear cursor color. Defaults to Cursor GUI color if not set.
     -- Set to "none" to match the text color at the target cursor position.
-    cursor_color = '#d3cdc3',
+    -- cursor_color = '#ff8800',
+    cursor_color = '#c35600',
 
     -- Background color. Defaults to Normal GUI background color if not set.
     normal_bg = '#282828',
@@ -21,9 +22,10 @@ return {
     -- transparent_bg_fallback_color = "#303030",
     --
 
+    slowdown_exponent = 0,
     stiffness = 0.6, -- 0.6      [0, 1]
-    trailing_stiffness = 0.6, -- 0.25     [0, 1]
-    distance_stop_animating = 0.1, -- 0.1      > 0
-    hide_target_hack = true, -- true     boolean
+    trailing_stiffness = 0.5, -- 0.25     [0, 1]
+    distance_stop_animating = 0.5, -- 0.1      > 0
+    hide_target_hack = false, -- true     boolean
   },
 }
