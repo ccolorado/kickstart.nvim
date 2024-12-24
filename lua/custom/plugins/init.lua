@@ -12,4 +12,5 @@ return {
   { 'sindrets/diffview.nvim' },
   { 'akinsho/toggleterm.nvim', config = true },
   { 'lambdalisue/vim-suda' },
+  { 'wesQ3/vim-windowswap' },
 }

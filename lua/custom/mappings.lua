@@ -3,6 +3,8 @@ return {
   -- vim.api.nvim_set_keymap('c', 'w!!', 'w S !sudo tee > /dev/null %', { noremap  true, silent = true }),
   vim.api.nvim_set_keymap('c', 'w!!', ':SudaWrite', { noremap = true, silent = true }),
 
+  vim.keymap.set('v', '//', 'y/<C-R>"<CR>', { desc = 'Search highlighted text' }),
+
   -- Terminals
   -- :ToggleTerm direction=float
   vim.keymap.set('n', '<Leader>tt', ':ToggleTerm direction=float<CR>', { desc = 'Open floating termianl' }),
@@ -24,7 +26,7 @@ return {
   vim.keymap.set('n', '<Leader>gs', ':Neogit kind=auto<CR>', { silent = true, noremap = true, desc = 'Opens Neogit' }),
 
   vim.keymap.set('n', '<Leader>gm', ':GMove ', { desc = 'Git move files by prompts destinantion path' }),
-  vim.keymap.set('n', '<Leader>gc', ':G commit<CR>', { desc = 'Git commits' }), -- commits staged only
+  vim.keymap.set('n', '<Leader>gc', ':G commit<CR>', { desc = 'Git commit' }), -- commits staged only
 
   -- `:Git mergetool`
   -- `:Git difftool`
@@ -40,10 +42,15 @@ return {
   vim.keymap.set('n', '<Leader>h', '<cmd>tabprevious<CR>', { desc = 'Tab Previou <-' }),
   vim.keymap.set('n', '<Leader>k', '<cmd>tabnew<CR>', { desc = 'Tab New ^' }),
   vim.keymap.set('n', '<Leader>l', '<cmd>tabnext<CR>', { desc = 'Tab Next ->' }),
-  vim.keymap.set('n', '<Leader>o', '<cmd>WindowsMaximize<CR>', { desc = 'Tab Next ->' }),
+  vim.keymap.set('n', '<Leader>o', '<cmd>WindowsMaximize<CR>', { desc = 'Maximize current pane' }),
 
-  -- vim.cmd("iabbrev <expr> ,d strftime('%Y-%m-%d')")
+  vim.keymap.set('n', '<leader>ss', ':call WindowSwap#EasyWindowSwap()<CR>', { silent = true, desc = 'Swap or Mark window for swapping' }),
 
   -- TODO
   --   C-Wv+gf - Edit existing file under cursor in vertically split window
+  -- TODO: align X
+  vim.keymap.set('n', '<leader>al', function()
+    vim.cmd 'normal! vap' -- Select around the paragraph
+    vim.cmd "'<,'>EasyAlign*|" -- Run the EasyAlign command
+  end, { desc = 'Align around paragraph with *|' }),
 }
