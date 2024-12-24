@@ -3,14 +3,14 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
-  { 'tpope/vim-obsession' },
-  { 'junegunn/vim-easy-align' },
-  -- { 'tommcdo/vim-exchange' },
-  { 'gbprod/substitute.nvim' },
   { 'AndrewRadev/linediff.vim' },
-  { 'sindrets/diffview.nvim' },
   { 'akinsho/toggleterm.nvim', config = true },
+  { 'gbprod/substitute.nvim' },
+  { 'junegunn/vim-easy-align' },
   { 'lambdalisue/vim-suda' },
+  { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+  { 'sindrets/diffview.nvim' },
+  -- { 'tommcdo/vim-exchange' },
+  { 'tpope/vim-obsession' },
   { 'wesQ3/vim-windowswap' },
 }
