@@ -20,7 +20,7 @@ ls.add_snippets('javascript', {
       ls.text_node { ');' },
     }),
 
-    ls.snippet({ trig = 'cl', dscr = 'Prints relative file path and line number in console.log' }, {
+    ls.snippet({ trig = 'll', dscr = 'Prints relative file path and line number in console.log' }, {
       -- Start with the console.log statement
       ls.text_node 'console.log(" ->>>',
       -- Function node to get the relative file path

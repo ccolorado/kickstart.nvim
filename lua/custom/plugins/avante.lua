@@ -44,3 +44,5 @@ return {
     },
   },
 }
+
+-- @alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
