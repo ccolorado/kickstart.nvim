@@ -18,7 +18,8 @@ ls.add_snippets('solidity', {
   ls.parser.parse_snippet('@p', '/// @param ${1:name} ${2:description}\n$3'),
 
   ls.parser.parse_snippet('txcall', '(bool sent, ${3:bytes data}) = ${1:recipient}.call{value: ${2:amount}}("");'),
-  -- Reference: https://solidity-by-example.org/sending-ether/
+
+  ls.parser.parse_snippet('fori', 'for (uint256 ${2:i} = 0; $1 < ${1:array}Length; ${3:++}$2) {\n\t$0\n}'),
 
   ls.add_snippets('solidity', {
 
@@ -40,7 +41,7 @@ ls.add_snippets('solidity', {
 
     ls.snippet({ trig = 'll', dscr = 'Prints relative file path and line number in console.log' }, {
       -- Start with the console.log statement
-      ls.text_node 'console.log(" ->>>',
+      ls.text_node 'console.log(" ->>> ',
       -- Function node to get the relative file path
       ls.function_node(function()
         local file_path = vim.api.nvim_buf_get_name(0)

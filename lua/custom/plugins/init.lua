@@ -10,7 +10,7 @@ return {
   { 'lambdalisue/vim-suda' },
   { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   { 'sindrets/diffview.nvim' },
-  -- { 'tommcdo/vim-exchange' },
+  { 'tommcdo/vim-exchange' },
   { 'tpope/vim-obsession' },
   { 'wesQ3/vim-windowswap' },
 }
