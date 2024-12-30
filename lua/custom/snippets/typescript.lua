@@ -22,7 +22,7 @@ ls.add_snippets('typescript', {
 
     ls.snippet({ trig = 'cl', dscr = 'Prints relative file path and line number in console.log' }, {
       -- Start with the console.log statement
-      ls.text_node 'console.log(" ->>>',
+      ls.text_node 'console.log(" ->>> ',
       -- Function node to get the relative file path
       ls.function_node(function()
         local file_path = vim.api.nvim_buf_get_name(0)
