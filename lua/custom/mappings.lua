@@ -5,6 +5,9 @@ return {
 
   vim.keymap.set('v', '//', 'y/<C-R>"<CR>', { desc = 'Search highlighted text' }),
 
+  vim.keymap.set('i', 'jj', '<ESC>', { desc = 'Exit instart mode with jj' }),
+  vim.keymap.set('i', 'ii', '<ESC>', { desc = 'Exit insert mode with ii' }),
+
   -- Terminals
   -- :ToggleTerm direction=float
   vim.keymap.set('n', '<Leader>tt', ':ToggleTerm direction=float<CR>', { desc = 'Open floating termianl' }),
@@ -38,13 +41,20 @@ return {
   -- vim.keymap.set('n', '<Leader>f', '<cmd>NvimTreeToggle<CR>'),
   vim.keymap.set('n', '<Leader>f', '<cmd>Neotree toggle <CR>', { desc = 'Toggles Neotree window' }),
 
+  -- vim.keymap.set('n', '<Leader>*', ':Telescope grep_string<CR>', { desc = 'Ripgrep Word under cursor with telescope' }),
   -- Tabs shortcuts
   vim.keymap.set('n', '<Leader>h', '<cmd>tabprevious<CR>', { desc = 'Tab Previou <-' }),
   vim.keymap.set('n', '<Leader>k', '<cmd>tabnew<CR>', { desc = 'Tab New ^' }),
   vim.keymap.set('n', '<Leader>l', '<cmd>tabnext<CR>', { desc = 'Tab Next ->' }),
-  vim.keymap.set('n', '<Leader>o', '<cmd>WindowsMaximize<CR>', { desc = 'Maximize current pane' }),
 
+  -- Window Control
+  vim.keymap.set('n', '<Leader>o', '<cmd>WindowsMaximize<CR>', { desc = 'Maximize current pane' }),
   vim.keymap.set('n', '<leader>ss', ':call WindowSwap#EasyWindowSwap()<CR>', { silent = true, desc = 'Swap or Mark window for swapping' }),
+  -- Window Resizing
+  vim.keymap.set('n', '<C-Left>', '"<Cmd>vertical resize -" . v:count1 . "<CR>"', { expr = true, replace_keycodes = false, desc = 'Decrease window width' }),
+  vim.keymap.set('n', '<C-Down>', '"<Cmd>resize -"          . v:count1 . "<CR>"', { expr = true, replace_keycodes = false, desc = 'Decrease window height' }),
+  vim.keymap.set('n', '<C-Up>', '"<Cmd>resize +"          . v:count1 . "<CR>"', { expr = true, replace_keycodes = false, desc = 'Increase window height' }),
+  vim.keymap.set('n', '<C-Right>', '"<Cmd>vertical resize +" . v:count1 . "<CR>"', { expr = true, replace_keycodes = false, desc = 'Increase window width' }),
 
   -- TODO
   --   C-Wv+gf - Edit existing file under cursor in vertically split window
