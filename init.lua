@@ -416,6 +416,7 @@ require('lazy').setup({
         -- },
         -- pickers = {}
         extensions = {
+          fzf = {},
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
@@ -425,6 +426,8 @@ require('lazy').setup({
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension, 'smart_history')
+
       -- pcall(require('telescope').load_extension, 'noice')
 
       -- See `:help telescope.builtin`
@@ -752,7 +755,8 @@ require('lazy').setup({
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        solidity = { 'prettierd', 'prettier', stop_after_first = true },
       },
     },
   },

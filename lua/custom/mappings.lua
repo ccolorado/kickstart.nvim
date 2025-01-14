@@ -1,10 +1,12 @@
 return {
+  -- TODO: move harpoon mappings here
+  -- Harpoon @ lua/custom/plugins/harpoon.lua
+
   -- save as sudo
   -- vim.api.nvim_set_keymap('c', 'w!!', 'w S !sudo tee > /dev/null %', { noremap  true, silent = true }),
   vim.api.nvim_set_keymap('c', 'w!!', ':SudaWrite', { noremap = true, silent = true }),
 
   vim.keymap.set('v', '//', 'y/<C-R>"<CR>', { desc = 'Search highlighted text' }),
-
   vim.keymap.set('i', 'jj', '<ESC>', { desc = 'Exit instart mode with jj' }),
   vim.keymap.set('i', 'ii', '<ESC>', { desc = 'Exit insert mode with ii' }),
 
@@ -13,8 +15,8 @@ return {
   vim.keymap.set('n', '<Leader>tt', ':ToggleTerm direction=float<CR>', { desc = 'Open floating termianl' }),
   vim.keymap.set('n', '<Leader>ttv', ':ToggleTerm direction=vertical<CR>', { desc = 'Open vertical termianl' }),
   vim.keymap.set('n', '<Leader>tth', ':ToggleTerm direction=horizontal<CR>', { desc = 'Open horizontal termianl' }),
-
   vim.keymap.set('n', '-', ':Oil<CR>', { desc = 'Open parent directory' }),
+
   -- Git
   -- TODO: search helpers for
   --  * change branch, * pull , * push
@@ -43,22 +45,30 @@ return {
 
   -- vim.keymap.set('n', '<Leader>*', ':Telescope grep_string<CR>', { desc = 'Ripgrep Word under cursor with telescope' }),
   -- Tabs shortcuts
-  vim.keymap.set('n', '<Leader>h', '<cmd>tabprevious<CR>', { desc = 'Tab Previou <-' }),
-  vim.keymap.set('n', '<Leader>k', '<cmd>tabnew<CR>', { desc = 'Tab New ^' }),
-  vim.keymap.set('n', '<Leader>l', '<cmd>tabnext<CR>', { desc = 'Tab Next ->' }),
+  -- vim.keymap.set('n', '<Leader>h', '<cmd>tabprevious<CR>', { desc = 'Tab Previou <-' }),
+  -- vim.keymap.set('n', '<Leader>k', '<cmd>tabnew<CR>', { desc = 'Tab New ^' }),
+  -- vim.keymap.set('n', '<Leader>l', '<cmd>tabnext<CR>', { desc = 'Tab Next ->' }),
 
   -- Window Control
+  vim.keymap.set('n', '<leader>gf', '<cmd>:vert wincmd f<CR>', { desc = 'Open filepath under cursor on vertical split' }),
   vim.keymap.set('n', '<Leader>o', '<cmd>WindowsMaximize<CR>', { desc = 'Maximize current pane' }),
   vim.keymap.set('n', '<leader>ss', ':call WindowSwap#EasyWindowSwap()<CR>', { silent = true, desc = 'Swap or Mark window for swapping' }),
   -- Window Resizing
-  vim.keymap.set('n', '<C-Left>', '"<Cmd>vertical resize -" . v:count1 . "<CR>"', { expr = true, replace_keycodes = false, desc = 'Decrease window width' }),
-  vim.keymap.set('n', '<C-Down>', '"<Cmd>resize -"          . v:count1 . "<CR>"', { expr = true, replace_keycodes = false, desc = 'Decrease window height' }),
-  vim.keymap.set('n', '<C-Up>', '"<Cmd>resize +"          . v:count1 . "<CR>"', { expr = true, replace_keycodes = false, desc = 'Increase window height' }),
-  vim.keymap.set('n', '<C-Right>', '"<Cmd>vertical resize +" . v:count1 . "<CR>"', { expr = true, replace_keycodes = false, desc = 'Increase window width' }),
+  vim.keymap.set('n', '<C-Right>', '"<Cmd>vertical resize -" . v:count1 . "<CR>"', { expr = true, replace_keycodes = false, desc = 'Decrease window width' }),
+  vim.keymap.set('n', '<C-Left>', '"<Cmd>vertical resize +" . v:count1 . "<CR>"', { expr = true, replace_keycodes = false, desc = 'Increase window width' }),
+  vim.keymap.set('n', '<C-Up>', '"<Cmd>resize -"          . v:count1 . "<CR>"', { expr = true, replace_keycodes = false, desc = 'Decrease window height' }),
+  vim.keymap.set('n', '<C-Down>', '"<Cmd>resize +"          . v:count1 . "<CR>"', { expr = true, replace_keycodes = false, desc = 'Increase window height' }),
 
-  -- TODO
-  --   C-Wv+gf - Edit existing file under cursor in vertically split window
-  -- TODO: align X
+  vim.keymap.set('n', '<Leader>o', '<cmd>WindowsMaximize<CR>', { desc = 'Maximize current pane' }),
+
+  -- -- 'Find in nvmim config')
+  -- local builtin = require 'telescope.builtin'
+  vim.keymap.set('n', '<leader>nv', function()
+    require('telescope.builtin').find_files { cwd = vim.fn.stdpath 'config' }
+  end, { desc = 'Jump to neovim config' }),
+
+  -- vim.keymap.set('n', '<leadre>fm', require('telescope.builtin').find_marks, { desc = 'Find Marks' }),
+
   vim.keymap.set('n', '<leader>al', function()
     vim.cmd 'normal! vap' -- Select around the paragraph
     vim.cmd "'<,'>EasyAlign*|" -- Run the EasyAlign command
