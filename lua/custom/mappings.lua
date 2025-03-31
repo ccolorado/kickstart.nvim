@@ -1,7 +1,4 @@
 return {
-  -- TODO: move harpoon mappings here
-  -- Harpoon @ lua/custom/plugins/harpoon.lua
-
   -- save as sudo
   -- vim.api.nvim_set_keymap('c', 'w!!', 'w S !sudo tee > /dev/null %', { noremap  true, silent = true }),
   vim.api.nvim_set_keymap('c', 'w!!', ':SudaWrite', { noremap = true, silent = true }),
@@ -73,4 +70,36 @@ return {
     vim.cmd 'normal! vap' -- Select around the paragraph
     vim.cmd "'<,'>EasyAlign*|" -- Run the EasyAlign command
   end, { desc = 'Align around paragraph with *|' }),
+
+  -- Avante AI keymaps
+  vim.keymap.set('n', '<leader>aa', '<cmd>AvanteAsk<cr>', { desc = 'Ask Avante AI' }),
+  vim.keymap.set('n', '<leader>ae', '<cmd>AvanteEdit<cr>', { desc = 'Edit with Avante AI' }),
+  vim.keymap.set('n', '<leader>ar', '<cmd>AvanteRefresh<cr>', { desc = 'Refresh Avante AI' }),
+  vim.keymap.set('n', '<leader>af', '<cmd>AvanteFocus<cr>', { desc = 'Focus Avante AI' }),
+  vim.keymap.set('n', '<leader>at', '<cmd>AvanteToggle<cr>', { desc = 'Toggle Avante AI' }),
+  vim.keymap.set('n', '<leader>ad', '<cmd>AvanteToggleDebug<cr>', { desc = 'Toggle Avante Debug' }),
+  vim.keymap.set('n', '<leader>ah', '<cmd>AvanteToggleHint<cr>', { desc = 'Toggle Avante Hint' }),
+  vim.keymap.set('n', '<leader>as', '<cmd>AvanteToggleSuggestion<cr>', { desc = 'Toggle Avante Suggestion' }),
+  vim.keymap.set('n', '<leader>aR', '<cmd>AvanteToggleRepomap<cr>', { desc = 'Toggle Avante Repomap' }),
+
+  -- Harpoon mappings
+  -- local M = {}
+  --
+  -- M.setup_harpoon = function()
+  --   local harpoon = require('harpoon')
+  --
+  --   vim.keymap.set('n', '<leader>za', function() harpoon:list():add() end, { desc = 'Harpoon: add file' })
+  --   vim.keymap.set('n', '<leader>zs', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = 'Harpoon: show files' })
+  --
+  --   vim.keymap.set('n', '<leader>6', function() harpoon:list():select(1) end, { desc = 'Harpoon: pick element 1' })
+  --   vim.keymap.set('n', '<leader>7', function() harpoon:list():select(2) end, { desc = 'Harpoon: pick element 2' })
+  --   vim.keymap.set('n', '<leader>8', function() harpoon:list():select(3) end, { desc = 'Harpoon: pick element 3' })
+  --   vim.keymap.set('n', '<leader>9', function() harpoon:list():select(4) end, { desc = 'Harpoon: pick element 4' })
+  --   vim.keymap.set('n', '<leader>0', function() harpoon:list():select(5) end, { desc = 'Harpoon: pick element 5' })
+  --   -- Toggle previous & next buffers stored within Harpoon list
+  --   -- vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
+  --   -- vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+  -- end
+  --
+  -- return M
 }

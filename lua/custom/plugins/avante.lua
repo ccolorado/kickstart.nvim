@@ -1,10 +1,110 @@
 return {
   'yetone/avante.nvim',
   event = 'VeryLazy',
+  enabled = true,
   lazy = false,
   version = false, -- set this if you want to always pull the latest change
   opts = {
-    -- add any opts here
+
+    provider = 'claude', -- Default and recommended provider
+    auto_suggestions_provider = 'claude',
+    -- Provider configurations
+    claude = {
+      endpoint = 'https://api.anthropic.com',
+      model = 'claude-3-sonnet-20240229',
+      allow_insecure = false,
+      api_key = os.getenv 'ANTHROPIC_API_KEY',
+      timeout = 30000,
+      temperature = 0,
+      max_tokens = 8000,
+    },
+    -- copilot = {
+    --   endpoint = 'https://api.githubcopilot.com',
+    --   model = 'gpt-4o-2024-08-06',
+    --   proxy = nil, -- [protocol://]host[:port] Use this proxy
+    --   allow_insecure = false, -- Allow insecure server connections
+    --   timeout = 30000, -- Timeout in milliseconds
+    --   temperature = 0,
+    --   max_tokens = 4096,
+    -- },
+    -- -- Behavior settings
+    behaviour = {
+
+      ---Specify the behaviour of avante.nvim
+      ---1. auto_focus_sidebar              : Whether to automatically focus the sidebar when opening avante.nvim. Default to true.
+      auto_focus_sidebar = true,
+
+      ---2. auto_suggestions = false, -- Whether to enable auto suggestions. Default to false.
+      auto_suggestions = false,
+
+      ---3. auto_apply_diff_after_generation: Whether to automatically apply diff after LLM response.
+      ---                                     This would simulate similar behaviour to cursor. Default to false.
+      auto_apply_diff_after_generation = false,
+      ---4. auto_set_keymaps                : Whether to automatically set the keymap for the current line. Default to true.
+      ---                                     Note that avante will safely set these keymap. See https://github.com/yetone/avante.nvim/wiki#keymaps-and-api-i-guess for more details.
+      auto_set_keymaps = true,
+
+      ---5. auto_set_highlight_group        : Whether to automatically set the highlight group for the current line. Default to true.
+      auto_set_highlight_group = true,
+
+      ---6. jump_result_buffer_on_finish = false, -- Whether to automatically jump to the result buffer after generation
+      -- jump_result_buffer_on_finish = false,
+
+      ---7. support_paste_from_clipboard    : Whether to support pasting image from clipboard. This will be determined automatically based whether img-clip is available or not.
+      ---8. minimize_diff                   : Whether to remove unchanged lines when applying a code block
+      minimize_diff = true,
+
+      ---9. enable_token_counting           : Whether to enable token counting. Default to true.
+      enable_token_counting = true,
+
+      auto_suggestions_respect_ignore = false,
+    },
+    --
+    -- -- Window configuration
+    -- windows = {
+    --   position = "right", -- "right" | "left" | "top" | "bottom" | "smart"
+    --   wrap = true,
+    --   width = 30, -- percentage of screen width
+    --   height = 30, -- percentage of screen height
+    --   sidebar_header = {
+    --     enabled = true,
+    --     align = "center",
+    --     rounded = true,
+    --   },
+    --   input = {
+    --     prefix = "> ",
+    --     height = 8,
+    --   },
+    --   edit = {
+    --     border = "rounded",
+    --     start_insert = true,
+    --   },
+    -- },
+    --
+    -- -- History settings
+    -- history = {
+    --   max_tokens = 4096,
+    --   storage_path = vim.fn.stdpath("state") .. "/avante",
+    --   paste = {
+    --     extension = "png",
+    --     filename = "pasted-%Y-%m-%d-%H-%M-%S",
+    --   },
+    -- },
+    --
+    -- -- Key mappings
+    -- mappings = {
+    --   ask = "aa",
+    --   edit = "ae",
+    --   refresh = "ar",
+    --   focus = "af",
+    --   toggle = {
+    --     default = "at",
+    --     debug = "ad",
+    --     hint = "ah",
+    --     suggestion = "as",
+    --     repomap = "aR",
+    --   },
+    -- },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = 'make',

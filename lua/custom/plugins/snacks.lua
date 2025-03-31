@@ -10,6 +10,7 @@ return {
       bigfile = { enabled = true },
       lazygit = {},
       -- dim = {},
+      explorer = { enable = true, replace_netrw = true },
       notifier = { enabled = true },
       quickfile = { enabled = true },
       statuscolumn = { enabled = true },
