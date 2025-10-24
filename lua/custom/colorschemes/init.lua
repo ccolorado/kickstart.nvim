@@ -8,6 +8,10 @@ return {
         flavour = 'mocha',
         transparent_background = true,
         default_integrations = true,
+        float = {
+          transparent = true,
+          solid = false,
+        },
         integrations = {
           cmp = true,
           gitsigns = true,
