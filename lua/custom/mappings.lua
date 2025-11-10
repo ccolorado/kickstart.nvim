@@ -71,16 +71,9 @@ return {
     vim.cmd "'<,'>EasyAlign*|" -- Run the EasyAlign command
   end, { desc = 'Align around paragraph with *|' }),
 
-  -- Avante AI keymaps
-  vim.keymap.set('n', '<leader>aa', '<cmd>AvanteAsk<cr>', { desc = 'Ask Avante AI' }),
-  vim.keymap.set('n', '<leader>ae', '<cmd>AvanteEdit<cr>', { desc = 'Edit with Avante AI' }),
-  vim.keymap.set('n', '<leader>ar', '<cmd>AvanteRefresh<cr>', { desc = 'Refresh Avante AI' }),
-  vim.keymap.set('n', '<leader>af', '<cmd>AvanteFocus<cr>', { desc = 'Focus Avante AI' }),
-  vim.keymap.set('n', '<leader>at', '<cmd>AvanteToggle<cr>', { desc = 'Toggle Avante AI' }),
-  vim.keymap.set('n', '<leader>ad', '<cmd>AvanteToggleDebug<cr>', { desc = 'Toggle Avante Debug' }),
-  vim.keymap.set('n', '<leader>ah', '<cmd>AvanteToggleHint<cr>', { desc = 'Toggle Avante Hint' }),
-  vim.keymap.set('n', '<leader>as', '<cmd>AvanteToggleSuggestion<cr>', { desc = 'Toggle Avante Suggestion' }),
-  vim.keymap.set('n', '<leader>aR', '<cmd>AvanteToggleRepomap<cr>', { desc = 'Toggle Avante Repomap' }),
+  -- Pretty‑print JSON with jq
+  vim.keymap.set('n', '<leader>ppj', ':%!jq .<CR>', { noremap = true, silent = true, desc = 'Pretty Pring json format' }),
+  vim.keymap.set('v', '<leader>ppj', "<cmd>'<,'>!jq .<CR>", { silent = true, desc = 'Pretty Pring json format Vusually selected' }),
 
   -- Harpoon mappings
   -- local M = {}
