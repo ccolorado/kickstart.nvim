@@ -28,6 +28,12 @@ return {
           shade = 'dark',
           percentage = 0.15,
         },
+        custom_highlights = function(colors)
+          return {
+            CursorLine = { bg = colors.surface2 },
+            CursorLineNr = { fg = colors.lavender, style = { 'bold' } },
+          }
+        end,
       }
       vim.cmd.colorscheme 'catppuccin'
     end,
