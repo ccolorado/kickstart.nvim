@@ -1052,6 +1052,7 @@ require('lazy').setup({
   -- [[ CUSTOM Settings ]]
   require 'custom.mappings',
   require 'custom.colorschemes.init',
+  -- require 'custom.preferences',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
@@ -1085,7 +1086,6 @@ require('lazy').setup({
       lazy = '💤 ',
     },
   },
-  require 'custom.autocorrect',
   require 'custom.autocorrect',
 })
 

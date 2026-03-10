@@ -10,9 +10,13 @@ vim.opt.wildmode = 'longest,list'
 
 vim.o.termguicolors = true
 
+-- Turn off wrapping by default
+vim.opt.wrap = false
+
+
 -- Force transapert background
 -- WIP: fixing inconsisteng transparent background
-vim.api.nvim_set_hl(0, 'Normal', { guibg = 'NONE', ctermbg = 'NONE' })
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE', ctermbg = 'NONE' })
 
 -- Set haskell ft for daml files
 -- TODO: Create a filetype lua file and move it there
