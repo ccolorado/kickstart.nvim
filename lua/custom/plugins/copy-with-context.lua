@@ -9,8 +9,8 @@ return {
           remote = '<leader>cr',
         },
         output_formats = {
-          default = '{filepath}:{line}',
-          remote = '{remote_url}',
+          default = '{filepath}:{line}\n{copied_text}',
+          remote = '{remote_url}:{line}\n{copied_text}',
         },
       }
     end,

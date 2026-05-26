@@ -728,7 +728,14 @@ require('lazy').setup({
           cmd = { 'nomicfoundation-solidity-language-server', '--stdio' },
           filetypes = { 'solidity' },
         },
-        ts_ls = {},
+        denols = {
+          root_dir = require('lspconfig').util.root_pattern('deno.json', 'deno.jsonc'),
+          single_file_support = false,
+        },
+        ts_ls = {
+          root_dir = require('lspconfig').util.root_pattern('package.json', 'tsconfig.json'),
+          single_file_support = false,
+        },
         -- typescript = {
         --   cmd = { 'vtsls', '--stdio' },
         --   filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
